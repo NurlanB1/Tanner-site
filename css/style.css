@@ -1,9 +1,4 @@
 @font-face {
-  font-family: MullerThin;
-  src: url(../fonts/Muller-Thin-DEMO.otf/), url(../fonts/Muller-Thin-DEMO.ttf);
-}
-
-@font-face {
   font-family: MullerBold;
   src: url(../fonts/Muller-ExtraBold-DEMO.ttf), url(../fonts/Muller-ExtraBold-DEMO.otf);
 }
@@ -270,6 +265,10 @@ body {
   cursor: pointer;
 }
 
+.slider1-control__arrowup:hover:before {
+  border-color: #000;
+}
+
 .slider1-control__arrowup:before {
   content: '';
   border: 2px solid burlywood;
@@ -284,6 +283,8 @@ body {
   top: 15px;
   width: 26px;
   height: 26px;
+  -webkit-transition: border .3s;
+  transition: border .3s;
 }
 
 .slider1-control__arrowdown {
@@ -294,6 +295,10 @@ body {
   cursor: pointer;
   position: relative;
   background-color: transparent;
+}
+
+.slider1-control__arrowdown:hover:before {
+  border-color: #000;
 }
 
 .slider1-control__arrowdown:before {
@@ -310,6 +315,8 @@ body {
   top: 0;
   width: 26px;
   height: 26px;
+  -webkit-transition: border .3s;
+  transition: border .3s;
 }
 
 .slider1-control__dots {
@@ -440,8 +447,8 @@ body {
   color: #878787;
   background-color: transparent;
   opacity: 1;
-  -webkit-transition: .7s linear;
-  transition: .7s linear;
+  -webkit-transition: all .7s linear, color .3s;
+  transition: all .7s linear, color .3s;
   border-radius: 50%;
   display: -webkit-box;
   display: flex;
@@ -451,6 +458,12 @@ body {
   height: 20px;
   -webkit-box-align: center;
           align-items: center;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider1-bullet:hover {
+  color: #000;
 }
 
 .slider1-bullet:before {
@@ -681,6 +694,7 @@ body {
   background-color: transparent;
   margin-bottom: 1em;
   border-radius: 50%;
+  outline: none;
 }
 
 .promo-slider__pagination .swiper-pagination-bullet1:after {
@@ -716,13 +730,13 @@ body {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
   height: 100%;
   display: -webkit-box;
   display: flex;
   -webkit-box-align: start;
           align-items: flex-start;
   font-size: 50px;
+  z-index: 19;
 }
 
 .promo-slider__prev {
@@ -730,6 +744,11 @@ body {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   margin-left: 125px;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 
@@ -737,7 +756,12 @@ body {
   margin-top: 70px;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  outline: none;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .promo-slider__slide {
@@ -866,6 +890,10 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   color: inherit;
+}
+
+.tanner-collection__link:hover {
+  color: #b8a47e;
 }
 
 .tanner-collection__logo {
@@ -1572,7 +1600,6 @@ body {
     height: 80px;
     font-size: 40px;
     position: relative;
-    cursor: pointer;
     margin-right: -22px;
     margin-left: -22px;
   }

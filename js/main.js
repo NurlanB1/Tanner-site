@@ -13,13 +13,11 @@ document.addEventListener( 'DOMContentLoaded' , function() {
       header.classList.remove('active')
     }
   })
-
   // navigation scrollspy
 
   const navLink = document.querySelectorAll('.nav-menu__link');
   const navLinkArray = []; 
   navLink.forEach(el => navLinkArray.push(el))
-  console.log(navLinkArray);
   
   function navigationSpy(e) {
     let best;
@@ -43,7 +41,7 @@ document.addEventListener( 'DOMContentLoaded' , function() {
       best.parentElement.classList.add('active');
     }
   }
-  window.addEventListener('scroll', navigationSpy)
+  window.addEventListener('scroll', navigationSpy);
 
 
     document.querySelector('.nav-toggle').addEventListener('click', function (e) {
@@ -137,25 +135,5 @@ document.addEventListener( 'DOMContentLoaded' , function() {
           prevEl: '.promo-slider__prev',
         },
       
-        on: {
-          paginationRender : function (swiper,  paginationEl) {
-            // this.navigation.prevEl.style.display = 'none';
-            let array = this.pagination.bullets;
-            console.log(swiper,  paginationEl);
-            if(array[0].classList.contains('swiper-pagination-bullet1-active')) {
-              // console.log(this.navigation.prevEl);
-               if(this.navigation.prevEl) {
-                console.log(1);
-                this.navigation.prevEl.style.display = 'none';
-              }
-            } else if(array[array.length - 1].classList.contains('swiper-pagination-bullet1-active')) {
-              // console.log(this.navigation.nextEl);
-               if(this.navigation.nextEl) {
-                console.log(2);
-                this.navigation.nextEl.style.display = 'none';
-              }
-            }
-          } 
-        }
       })
 })

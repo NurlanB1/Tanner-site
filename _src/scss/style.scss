@@ -1,12 +1,6 @@
 $main: #fff;
 $mainC: #fff;
-
-
-@font-face {
-    font-family: MullerThin;
-    src: url(../fonts/Muller-Thin-DEMO.otf/),
-         url(../fonts/Muller-Thin-DEMO.ttf);
-}
+    
 @font-face {
     font-family: MullerBold;
     src: url(../fonts/Muller-ExtraBold-DEMO.ttf),
@@ -296,6 +290,9 @@ body {
         background-color: transparent;
         margin-bottom: 30px;
         cursor: pointer;
+        &:hover:before {
+            border-color: #000;
+        }
         @media (max-width: 991px) {
             margin-bottom: 70px;
             &:before {
@@ -314,6 +311,7 @@ body {
             top: 15px;
             width: 26px;
             height: 26px;
+            transition: border .3s;
         }
     }
 
@@ -325,6 +323,9 @@ body {
         cursor: pointer;
         position: relative;
         background-color: transparent;
+        &:hover:before {
+            border-color: #000;
+        }
         &:before {
             content: '';
             border: 2px solid burlywood;
@@ -337,6 +338,7 @@ body {
             top: 0;
             width: 26px;
             height: 26px;
+            transition: border .3s;
         }
     }
 
@@ -478,20 +480,24 @@ body {
     color: #878787;
     background-color: transparent;
     opacity: 1;
-    transition:  .7s linear;
+    transition: all .7s linear, color .3s;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     width: 20px;
     height: 20px;
     align-items: center;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+        color: #000;
+    }
     @media (max-width: 991px) {
         transform: scale(0.4) translateX(-180px);
         width: 80px;
         height: 80px;
         font-size: 40px;
         position: relative;
-        cursor: pointer;
         margin-right: -22px;
         margin-left: -22px;
     }
@@ -775,7 +781,6 @@ body {
             display: flex;
             padding: 30px 0;
             align-items: center;
-            counter-reset: number;
             list-style-type: none;
             font-size: 18px;
             font-weight: bold;
@@ -800,7 +805,7 @@ body {
                 background-color: transparent;
                 margin-bottom: 1em;
                 border-radius: 50%;
-                
+                outline: none;
                 &:after {
                     content: '';
                     width: 1px;
@@ -830,11 +835,11 @@ body {
         position: absolute;
         left: 0;
         top: 0;
-        width: 100%;
         height: 100%;
         display: flex;
         align-items: flex-start;
         font-size: 50px;
+        z-index: 19;
         @media (max-width: 991px) {
             width: auto;
             left: 50%;
@@ -845,12 +850,16 @@ body {
         margin-top: 70px;
         transform: translateY(-50%);
         margin-left: 80px + 45px;
+        outline: none;
+        user-select: none;
         cursor: pointer;
     }
     &__next {
         margin-top: 70px;
         transform: translateY(-50%);
+        outline: none;
         cursor: pointer;
+        user-select: none;
     }
     
     // .promo-slider__slider
@@ -1052,6 +1061,9 @@ body {
         text-transform: uppercase;
         text-decoration: none;
         color: inherit; 
+        &:hover {
+            color: #b8a47e;
+        }
     }
     &__logo {
         margin-top: 75px;
