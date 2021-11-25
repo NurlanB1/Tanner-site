@@ -3,6 +3,34 @@ document.addEventListener( 'DOMContentLoaded' , function() {
   // baguettebox
   baguetteBox.run('.tanner-collection__gallery');
 
+  /*---------------------------- modal open ----------------------------*/
+  let modalLinks = document.querySelectorAll('a[href="#"]');
+  document.addEventListener('click', function (e) {
+    
+    if(e.target.nodeName == 'A' && e.target.getAttribute('href') == '#') {
+      e.preventDefault();
+      MicroModal.show('modal-1');
+    }
+  })
+  
+
+  /*---------------------------- tabs ----------------------------*/
+  let tab = document.querySelectorAll('.modal-tabs__choice');
+  for (let i = 0; i < tab.length; i++) {
+    const el = tab[i];
+    el.addEventListener('click', function (e) {
+      let tabs = document.querySelectorAll('.modal-tabs__tab');
+      let tabac = document.querySelector('.modal-tabs__choice.active');
+      tabac.classList.remove('active');
+      this.classList.add('active');
+      for (let i = 0; i < tabs.length; i++) {
+        const el = tabs[i];
+        el.classList.remove('active')
+      }
+      tabs[i].classList.add('active')
+    })
+  }
+  
   // header scroll 
 
   const header = document.querySelector('.header');
@@ -136,4 +164,51 @@ document.addEventListener( 'DOMContentLoaded' , function() {
         },
       
       })
+      var mySwiper3 = new Swiper('.promo-slider-3', {
+          // Optional parameters
+          //direction: 'vertical',
+          loop: true,
+          touchEventsTarget: 'wrapper',
+          // centeredSlides: true,
+          slidesPerView: 1,
+          // spaceBetween: 30,
+          observer: true,
+          observeParents: true,
+          speed: 1000,
+          slideToClickedSlide: true, watchSlidesVisibility:true,
+          preloadImages: false,
+          // Enable lazy loading
+          lazy: true,
+          //parallax:true,// Responsive breakpoints
+          breakpoints: {
+            // when window width is >= 640px
+            // 992: {
+            //   slidesPerView: 1,
+            // }
+          },
+        
+          // If we need pagination
+          pagination: {
+            el: '.promo-slider__pagination',
+            clickable: true,
+            dynamicBullets: true,
+            dynamicMainBullets: 1,
+            bulletClass: 'swiper-pagination-bullet1',
+            bulletActiveClass: 'swiper-pagination-bullet1-active',
+            modifierClass: 'promo-slide__pagination-',
+            type: 'bullets',
+            renderBullet: function (index, className) {
+              let prefix = '0';
+              if (index > 8) {prefix = ''}
+              return '<span class="' + className + '">' + (prefix + ++index) + '</span>';
+            },
+          },
+  
+          // Navigation arrows
+          navigation: {
+            nextEl: '.promo-slider__prev',
+            prevEl: '.promo-slider__next',
+          },
+        
+        })
 })
